@@ -9,4 +9,4 @@ RUN pip install --upgrade setuptools
 RUN pip install -r /requirements.txt
 RUN pip install pyniryo2
 
-ENTRYPOINT [ "python", "-u", "latency_test.py"]
+ENTRYPOINT [ "python", "-u", "periodic_get_joints_test.py"]
