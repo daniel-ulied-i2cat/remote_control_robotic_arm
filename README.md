@@ -1,4 +1,4 @@
-# Remotr Control Niryo Ned 2
+# Remote Control Niryo Ned 2
 
 Repository for the Remote Control of Niryo Ned 2. 
 
