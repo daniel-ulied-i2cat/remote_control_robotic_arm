@@ -21,7 +21,7 @@ def main(robot: pyniryo.NiryoRobot, example_metric: Gauge) -> None:
 
 if __name__ == '__main__':
     example_metric = Gauge('Movement_Time', 'Time it takes to move from a given position to another given position')
-    robot = pyniryo.NiryoRobot("192.168.10.178")
+    robot = pyniryo.NiryoRobot("172.27.13.150")
     try:
         main(robot, example_metric)
     except KeyboardInterrupt:

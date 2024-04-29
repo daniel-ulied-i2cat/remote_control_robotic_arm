@@ -1,18 +1,20 @@
-# ZeroSwarmNiryoNed2
+# Remotr Control Niryo Ned 2
 
+Repository for the Remote Control of Niryo Ned 2. 
+
+Also, the porject includes monitoring. The monitoring is going to be done using Prometheus and then visualized in Grafana. Monitoring should include latency, jitter and throughput.
 
 
 ## Project Status
 
-### 18/01/2024
+### 29/04/2024
 
-En la carpeta de zero-swarm/código he puesto una carpeta con código para ejecutar prometheus con docker-compose. La idea es que desde el niryo (en este caso la WSL de ubuntu) se corra un promethues-client enviando información de status del robot p.ej latencia. Después en el ordenador se puedan extraer estas metricas. 
+First commit to the repository. Currently the project contains Python scripts to run tests, as well as docker and docker-compose files to run the tests in a containarized manner.
 
-Me he quedado en el punto de integrar prometheus en grafana, la idea sería poder tener los datos de prometheus en grafana (que es más bonito) y ya empezar a generar gráficos y demas. Asi que los puntos a continuar serían;
+## Roadmap
 
-	1. Acabar integración grafana con prometheus (no se porque pero no consigue establecer comunicación con el servidor de grafana)
-    2. Generar más métricas. Esto también querrá decir que necesito aprender algo del lenguaje de query de prometheus o grafana (no se si es el mismo, o parecido).
-
-### 22/01/2024
-
-No real progress. Can't add prometheus data to grafana... don't know how to query.
+- [x] Run Remote Control in Docker
+- [x] Add Prometheus
+- [ ] Add Grafana
+- [ ] Add Latency, Jitter, Throughput to Prometheus
+- [ ] Create a remote control interface. Maybe keyboard to move arm (or directly in Grafana?)
