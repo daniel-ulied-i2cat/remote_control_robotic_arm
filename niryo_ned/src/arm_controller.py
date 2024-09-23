@@ -9,7 +9,19 @@ IP = "172.27.13.150"
 INITIAL_POSITION = [0, 0.499, -1.248, 0, 0, 0]
 STEP_SIZE = 0.05
 
-def disable_echo():
+def disable_echo() -> list:
+    """
+    Function to disable user keys to be seen in terminal
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    list
+        Settings of the terminal
+    """
     fd = sys.stdin.fileno()
     original_settings = termios.tcgetattr(fd)
     tty.setcbreak(fd)
@@ -18,11 +30,34 @@ def disable_echo():
     termios.tcsetattr(fd, termios.TCSADRAIN, new_settings)
     return original_settings
 
-def restore_terminal(original_settings):
+def restore_terminal(original_settings: list) -> None:
+    """
+    Function to restore terminal
+
+    Parameters
+    ----------
+    original_settings: list
+
+    Returns
+    -------
+    None
+    """
     fd = sys.stdin.fileno()
     termios.tcsetattr(fd, termios.TCSADRAIN, original_settings)
 
 def get_key() -> str:
+    """
+    Function to get the key pressed by the user.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    str
+        The key pressed by the user
+    """
     original_settings = termios.tcgetattr(sys.stdin)
     try:
         tty.setraw(sys.stdin.fileno())
@@ -35,7 +70,18 @@ def get_key() -> str:
         termios.tcsetattr(sys.stdin, termios.TCSADRAIN, original_settings)
     return key
 
-def animate():
+def animate() -> None:
+    """
+    Function to animate the moving message on the terminal.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    None
+    """
     animation = ["Moving...   ", "Moving..    ", "Moving...   "]
     for frame in animation:
         sys.stdout.write(f"\r{frame}")
@@ -44,6 +90,9 @@ def animate():
 
 def main(robot: pyniryo.NiryoRobot) -> None:
     """
+    Main function to control the Niryo Ned robot arm using the keyboard.
+
+    The following keys are used to control the robot arm:
          joint0: Base Motor
            - Controls the rotation of the robot's base
            - Positive Values (>-2.99): Rotate right
@@ -73,6 +122,15 @@ def main(robot: pyniryo.NiryoRobot) -> None:
            - Rotates or actuates the end effector or gripper
            - Positive Values (>-2.53): Rotate the gripper to the right
            - Negative Values (<2.53): Rotate the gripper to the left
+    
+    Parameters
+    ----------
+    robot: pyniryo.NiryoRobot
+        The NiryoRobot object to control the robot
+    
+    Returns
+    -------
+    None
     """
     robot.arm.calibrate_auto()
     settings = termios.tcgetattr(sys.stdin)
