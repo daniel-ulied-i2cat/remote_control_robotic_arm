@@ -44,35 +44,35 @@ def animate():
 
 def main(robot: pyniryo.NiryoRobot) -> None:
     """
-         joint0: Base Motor -> -2.99 <-> 2.99 
+         joint0: Base Motor
            - Controls the rotation of the robot's base
-           - Positive Values (>0): Rotate right
-           - Negative Values (<0): Rotate left
+           - Positive Values (>-2.99): Rotate right
+           - Negative Values (<2.99): Rotate left
         
-         joint1: Shoulder Motor -> -1.83 <-> 0.61
+         joint1: Shoulder Motor
            - Moves the shoulder of the robot arm
-           - Positive Values (>0): Raise the shoulder upward
-           - Negative Values (<0): Lower the shoulder downward
+           - Positive Values (>-1.83): Raise the shoulder upward
+           - Negative Values (<0.61): Lower the shoulder downward
         
-         joint2: Elbow Motor -> -1.34 <-> 1.57
+         joint2: Elbow Motor
            - Moves the elbow of the robot arm
-           - Positive Values (>0): Raise the elbow upward
-           - Negative Values (<0): Lower the elbow downward
+           - Positive Values (>-1.34): Raise the elbow upward
+           - Negative Values (<1.57): Lower the elbow downward
         
-         joint3: Forearm Rotation Motor -> -2.09 <-> 2.09
+         joint3: Forearm Rotation Motor
            - Rotates the wrist of the robot arm
-           - Positive Values (>0): Rotate wrist to the right
-           - Negative Values (<0): Rotate wrist to the left
+           - Positive Values (>-2.09): Rotate wrist to the right
+           - Negative Values (<2.09): Rotate wrist to the left
         
-         joint4: Wrist Motor -> -1.92 <-> 1.92
+         joint4: Wrist Motor
            - Moves the fingers of the robot up and down
-           - Positive Values (>0): Move fingers upward
-           - Negative Values (<0): Move fingers downward
+           - Positive Values (>-1.92): Move fingers upward
+           - Negative Values (<1.92): Move fingers downward
         
-         joint5: Hand Rotation Motor -> -2.53 <-> 2.53
+         joint5: Hand Rotation Motor
            - Rotates or actuates the end effector or gripper
-           - Positive Values (>0): Rotate the gripper to the right
-           - Negative Values (<0): Rotate the gripper to the left
+           - Positive Values (>-2.53): Rotate the gripper to the right
+           - Negative Values (<2.53): Rotate the gripper to the left
     """
     robot.arm.calibrate_auto()
     settings = termios.tcgetattr(sys.stdin)
