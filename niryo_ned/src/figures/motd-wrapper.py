@@ -3,10 +3,10 @@
 from pathlib import Path
 import subprocess
 
-ASCII_ART_PATH = Path(__file__).parent.joinpath('./figures/ned2_ascii')
+ASCII_ART_PATH = Path(__file__).parent.joinpath('.ned2_ascii')
 MOTD_PATH = Path('/etc/update-motd.d')
 MOTD_CONTENT = "50-landscape-sysinfo"
-COMMAND_PATH =  Path(__file__).parent.joinpath('./figures/command_help')
+COMMAND_PATH =  Path(__file__).parent.joinpath('.command_help')
 
 MIN_PADDING = 3
 
