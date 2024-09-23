@@ -43,6 +43,37 @@ def animate():
         time.sleep(0.2)
 
 def main(robot: pyniryo.NiryoRobot) -> None:
+    """
+         joint0: Base Motor -> -2.99 <-> 2.99 
+           - Controls the rotation of the robot's base
+           - Positive Values (>0): Rotate right
+           - Negative Values (<0): Rotate left
+        
+         joint1: Shoulder Motor -> -1.83 <-> 0.61
+           - Moves the shoulder of the robot arm
+           - Positive Values (>0): Raise the shoulder upward
+           - Negative Values (<0): Lower the shoulder downward
+        
+         joint2: Elbow Motor -> -1.34 <-> 1.57
+           - Moves the elbow of the robot arm
+           - Positive Values (>0): Raise the elbow upward
+           - Negative Values (<0): Lower the elbow downward
+        
+         joint3: Forearm Rotation Motor -> -2.09 <-> 2.09
+           - Rotates the wrist of the robot arm
+           - Positive Values (>0): Rotate wrist to the right
+           - Negative Values (<0): Rotate wrist to the left
+        
+         joint4: Wrist Motor -> -1.92 <-> 1.92
+           - Moves the fingers of the robot up and down
+           - Positive Values (>0): Move fingers upward
+           - Negative Values (<0): Move fingers downward
+        
+         joint5: Hand Rotation Motor -> -2.53 <-> 2.53
+           - Rotates or actuates the end effector or gripper
+           - Positive Values (>0): Rotate the gripper to the right
+           - Negative Values (<0): Rotate the gripper to the left
+    """
     robot.arm.calibrate_auto()
     settings = termios.tcgetattr(sys.stdin)
     pos = INITIAL_POSITION
