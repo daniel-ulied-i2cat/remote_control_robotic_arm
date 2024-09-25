@@ -3,8 +3,10 @@ import pyniryo2 as pyniryo
 import termios
 import sys
 import subprocess
+import threading
 
-from arm.arm_controller import ArmController
+#from arm.arm_controller_control_based import ArmControllerPositionBased as ArmController
+from arm.arm_controller_position_based import ArmControllerPositionBased as ArmController
 from stdinout.stdin_out_controller import StdInOutController
 
 IP = "172.27.13.150"
@@ -29,12 +31,12 @@ def main(robot: pyniryo.NiryoRobot) -> None:
     robot.arm.calibrate_auto()
     settings = termios.tcgetattr(sys.stdin)
 
-
     try:
-        while True:
-            key = std_in_out_controller.get_key()
-            arm_controller.move_robot(key)
-            time.sleep(0.05)
+        key_thread = threading.Thread(target=arm_controller.move_robot)
+        key_thread.daemon = True
+        key_thread.start()
+    
+        arm_controller.position_calculator()
     finally:
         termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
 
@@ -49,6 +51,7 @@ if __name__ == '__main__':
     try:
         main(robot)
     except KeyboardInterrupt:
+        print("\n\n\nRecieved KeyboardInterrupt. Stopping the robot...")
         robot.arm.go_to_sleep()
         print("The robot got stopped.")
     finally:

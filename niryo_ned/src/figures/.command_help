@@ -7,4 +7,4 @@ Control the robot using the following keys:
   A/D: Forearm Rotation
   R/F: Wrist Motor
   Space: Gripper
-  Q to quit
+  CTRL+C to quit

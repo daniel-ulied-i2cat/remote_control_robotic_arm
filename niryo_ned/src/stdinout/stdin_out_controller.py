@@ -3,6 +3,7 @@ import tty
 import termios
 import select
 import time
+import threading
 
 
 class StdInOutController:
@@ -85,7 +86,7 @@ class StdInOutController:
         -------
         None
         """
-        animation = ["Moving...   ", "Moving..    ", "Moving...   "]
+        animation = ["Moving...   ", "Moving..    ", "Moving.    ", "Moving "]
         for frame in animation:
             sys.stdout.write(f"\r{frame}")
             sys.stdout.flush()
