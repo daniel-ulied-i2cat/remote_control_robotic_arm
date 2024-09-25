@@ -16,9 +16,9 @@ class ArmControllerPositionBased(ArmController):
         self.action_pending = False
         self._print_joint_information()
         self.std_in_out_controller = StdInOutController()
+        self.end = False
 
     def __action_finished(self, message: str) -> None:
-        print("\n\n action finished!")
         self.action_pending = False
 
     def _print_joint_information(self) -> None:
@@ -50,6 +50,7 @@ class ArmControllerPositionBased(ArmController):
             # wait for new key
             key = self.std_in_out_controller.get_key()
             if key == 'q':
+                self.end = True
                 raise KeyboardInterrupt  # Exit loop if 'q' is pressed
             
             # update the position list based on the key
@@ -103,6 +104,8 @@ class ArmControllerPositionBased(ArmController):
                 True if the robot arm is moved, False otherwise
          """
         while True:
+            if self.end:
+                break
             self._print_pos_information(self.pos)
             if not self.action_pending:
                 # Function to move the robot arm

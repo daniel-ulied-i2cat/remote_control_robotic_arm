@@ -51,9 +51,9 @@ if __name__ == '__main__':
     try:
         main(robot)
     except KeyboardInterrupt:
-        print("\n\n\nRecieved KeyboardInterrupt. Stopping the robot...")
+        time.sleep(2)
         robot.arm.go_to_sleep()
-        print("The robot got stopped.")
+        print("\n\n\nThe robot got stopped.")
     finally:
         robot.end()
         std_in_out_controller.restore_terminal(original_settings)
