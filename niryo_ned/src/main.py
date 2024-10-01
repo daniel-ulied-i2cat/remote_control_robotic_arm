@@ -4,6 +4,7 @@ import termios
 import sys
 import subprocess
 import threading
+import argparse
 
 #from arm.arm_controller_control_based import ArmControllerPositionBased as ArmController
 from arm.arm_controller_position_based import ArmControllerPositionBased as ArmController
@@ -41,7 +42,12 @@ def main(robot: pyniryo.NiryoRobot) -> None:
         termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
 
 if __name__ == '__main__':
-    subprocess.run(INITIAL_FIGURE_PATH, encoding='utf-8')
+    parser = argparse.ArgumentParser(description='Control Niryo Ned robot arm.')
+    parser.add_argument('--docker', action='store_true', help='Specify if running in a Docker container')
+    args = parser.parse_args()
+
+    if not args.docker:
+        subprocess.run(INITIAL_FIGURE_PATH, encoding='utf-8')
     robot = pyniryo.NiryoRobot(IP)
     
     arm_controller = ArmController(robot, INITIAL_POSITION, STEP_SIZE)

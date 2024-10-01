@@ -7,6 +7,6 @@ ADD requirements.txt /
 RUN pip install --upgrade pip
 RUN pip install --upgrade setuptools
 RUN pip install -r /requirements.txt
-RUN pip install pyniryo2
+# RUN pip install pyniryo2
 
-ENTRYPOINT [ "python", "-u", "periodic_get_joints_test.py"]
+ENTRYPOINT [ "python", "main.py", "--docker"]
