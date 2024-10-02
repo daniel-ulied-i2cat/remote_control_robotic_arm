@@ -20,21 +20,36 @@ To deploy this code there are two possible ways;
 
 ```docker run -t remote_controller```
 
-2. Launch Locally;
+2. Use Docker Compose (will generate Prometheus Server);
 
-2.1 Create Python Virtual Environment
+2.1 Generate Docker Compose;
+
+```docker compose build```
+
+2.2 Run Docker Compose;
+
+```docker compose up -d```
+
+2.3 Attach to Niryo Ned 2 Docker Container;
+
+```docker attach niryo-ned-2```
+
+
+3. Launch Locally;
+
+3.1 Create Python Virtual Environment
 
 ```python -m venv .venv```
 
-2.2 Source Virtual Environment
+3.2 Source Virtual Environment
 
 ```source .venv/bin/activate```
 
-2.3 Install Dependancies
+3.3 Install Dependancies
 
 ```pip install -r requirements.txt```
 
-2.4 Launch Python Project
+3.4 Launch Python Project
 
 ```python main.py```
 

@@ -4,10 +4,11 @@ import sys
 import time
 
 import pyniryo2 as pyniryo
-import roslibpy
 
 from arm.arm_controller import ArmController
 from stdinout.stdin_out_controller import StdInOutController
+from prometheus_exporter.prometheus_client import PrometheusClient
+
 
 class ArmControllerPositionBased(ArmController):
 
@@ -16,6 +17,7 @@ class ArmControllerPositionBased(ArmController):
         self.action_pending = False
         self._print_joint_information()
         self.std_in_out_controller = StdInOutController()
+        self.prometheus_client = PrometheusClient()
         self.end = False
 
     def __action_finished(self, message: str) -> None:
@@ -112,4 +114,6 @@ class ArmControllerPositionBased(ArmController):
                 self.action_pending = True
                 time_before_command = time.time()
                 self.robot.arm.move_joints(self.pos, self.__action_finished)
-                time_taken = time.time() - time_before_command 
+                time_taken = time.time() - time_before_command
+                # Add time taken to Prometheus metrics
+                self.prometheus_client.send_joint_movement_time(time_taken)

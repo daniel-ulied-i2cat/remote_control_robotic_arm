@@ -6,3 +6,4 @@ scrape_configs:
   - job_name: niryo_ned_2
     static_configs:
       - targets: ["niryo-ned-2:8000"]
+    metrics_path: /metrics

@@ -6,16 +6,19 @@ services:
     ports:
       - "8000:8000"
     restart: unless-stopped
+    stdin_open: true
+    tty: true
   prometheus:
     container_name: prometheus-svc
     depends_on:
       - niryo-ned-2
     ports:
-      - "9090:9090"
+      - "9000:9090"
     image: prom/prometheus
     command: --config.file=/etc/prometheus/prometheus.yaml
     volumes:
       - ./prometheus/:/etc/prometheus/
+    stdin_open: false
 
 networks:
   metrics:
