@@ -14,7 +14,7 @@ IP = "172.27.13.150"
 INITIAL_POSITION = [0, 0.499, -1.248, 0, 0, 0]
 STEP_SIZE = 0.2
 INITIAL_FIGURE_PATH = "./figures/motd-wrapper.py"
-
+INITIAL_REMOTE_FIGURE_PATH = "./figures/remote-information.py"
 
 def main(robot: pyniryo.NiryoRobot) -> None:
     """
@@ -48,6 +48,9 @@ if __name__ == '__main__':
 
     if not args.docker:
         subprocess.run(INITIAL_FIGURE_PATH, encoding='utf-8')
+    else:
+        subprocess.run(INITIAL_REMOTE_FIGURE_PATH, encoding='utf-8')
+
     robot = pyniryo.NiryoRobot(IP)
     
     arm_controller = ArmController(robot, INITIAL_POSITION, STEP_SIZE)

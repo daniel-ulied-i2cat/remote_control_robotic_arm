@@ -60,3 +60,7 @@ A prometheus graph should be present in URL: http://http://172.27.13.150:9000/. 
 ## Diagram 
 ![Niryo Ned 2 Diagram](figures/Diagram.png)
 
+## Next Steps
+
+[ ] Add time taken in the shell
+[ ] Add Diagram in the remote shell
