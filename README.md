@@ -2,19 +2,43 @@
 
 Repository for the Remote Control of Niryo Ned 2. 
 
-Also, the porject includes monitoring. The monitoring is going to be done using Prometheus and then visualized in Grafana. Monitoring should include latency, jitter and throughput.
+## Niryo Ned 2
 
+The Niryo Ned 2 is a robotic arm that runs on open-source software (https://github.com/NiryoRobotics/ned_ros). The code is designed based on ROS, where there are a number of different ROS nodes, each running a specific component of the robots hardware (there are also other support ROS nodes).
 
-## Project Status
+## How to use it?
 
-### 29/04/2024
+To deploy this code there are two possible ways;
 
-First commit to the repository. Currently the project contains Python scripts to run tests, as well as docker and docker-compose files to run the tests in a containarized manner.
+1. Use the Dockerfile;
 
-## Roadmap
+1.1 Generate the Dockerfile;
 
-- [x] Run Remote Control in Docker
-- [x] Add Prometheus
-- [ ] Add Grafana
-- [ ] Add Latency, Jitter, Throughput to Prometheus
-- [ ] Create a remote control interface. Maybe keyboard to move arm (or directly in Grafana?)
+```docker build . -t remote_controller```
+
+1.2 Launch the Docker Container;
+
+```docker run -t remote_controller```
+
+2. Launch Locally;
+
+2.1 Create Python Virtual Environment
+
+```python -m venv .venv```
+
+2.2 Source Virtual Environment
+
+```source .venv/bin/activate```
+
+2.3 Install Dependancies
+
+```pip install -r requirements.txt```
+
+2.4 Launch Python Project
+
+```python main.py```
+
+## Expected Results;
+
+A prometheus graph should be present in URL: http://localhost:9001. With information regarding the time it has taken to move the armL
+
