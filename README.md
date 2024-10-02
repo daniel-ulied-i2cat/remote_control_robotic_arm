@@ -8,6 +8,11 @@ The Niryo Ned 2 is a robotic arm that runs on open-source software (https://gith
 
 ## How to use it?
 
+The remote control of the robot is operated with the keys on your keyboard. When the code is launched there is a diagram clearly showing what keys correspond to what motors. 
+
+The terminal will print the following lines of code;
+![Interactive Terminal](figures/Interactive_Terminal.png)
+
 To deploy this code there are three possible ways;
 
 ### 1. Use the Dockerfile
@@ -63,4 +68,5 @@ A prometheus graph should be present in URL: http://http://172.27.13.150:9000/. 
 ## Next Steps
 
 - [ ] Add time taken in the shell
+- [ ] Make the step be modifiable,  (-0.10 / +0.10) ->  (U / O).
 - [x] Add Diagram in the remote shell
