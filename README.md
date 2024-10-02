@@ -67,6 +67,7 @@ A prometheus graph should be present in URL: http://http://172.27.13.150:9000/. 
 
 ## Next Steps
 
+- [ ] Add message "Q" to gently quit terminal
 - [ ] Add time taken in the shell
 - [ ] Make the step be modifiable,  (-0.10 / +0.10) ->  (U / O).
 - [x] Add Diagram in the remote shell
