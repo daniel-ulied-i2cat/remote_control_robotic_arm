@@ -8,9 +8,9 @@ The Niryo Ned 2 is a robotic arm that runs on open-source software (https://gith
 
 ## How to use it?
 
-To deploy this code there are two possible ways;
+To deploy this code there are three possible ways;
 
-### 1. Use the Dockerfile;
+### 1. Use the Dockerfile
 
 1.1 Generate the Dockerfile;
 
@@ -18,9 +18,9 @@ To deploy this code there are two possible ways;
 
 1.2 Launch the Docker Container;
 
-```docker run -t remote_controller```
+```docker run -it remote_controller```
 
-### 2. Use Docker Compose (will generate Prometheus Server);
+### 2. Use Docker Compose (will generate Prometheus Server)
 
 2.1 Generate Docker Compose;
 
@@ -35,7 +35,7 @@ To deploy this code there are two possible ways;
 ```docker attach niryo-ned-2```
 
 
-### 3. Launch Locally;
+### 3. Launch Locally
 
 3.1 Create Python Virtual Environment
 
@@ -53,7 +53,7 @@ To deploy this code there are two possible ways;
 
 ```python main.py```
 
-## Expected Results;
+## Expected Results
 
 A prometheus graph should be present in URL: http://http://172.27.13.150:9000/. With information regarding the time it has taken to move the arm.
 
