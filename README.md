@@ -62,5 +62,5 @@ A prometheus graph should be present in URL: http://http://172.27.13.150:9000/. 
 
 ## Next Steps
 
-[ ] Add time taken in the shell
-[x] Add Diagram in the remote shell
+- [ ] Add time taken in the shell
+- [x] Add Diagram in the remote shell
