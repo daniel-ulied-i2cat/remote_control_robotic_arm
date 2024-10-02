@@ -57,3 +57,6 @@ To deploy this code there are two possible ways;
 
 A prometheus graph should be present in URL: http://http://172.27.13.150:9000/. With information regarding the time it has taken to move the arm.
 
+## Diagram 
+![Niryo Ned 2 Diagram](figures/Diagram.png)
+
