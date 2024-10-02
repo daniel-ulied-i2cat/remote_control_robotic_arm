@@ -45,7 +45,7 @@ class ArmController:
         elif key in ['a', 'd']:
             self.pos[joint_index] += -step if key == 'a' else step
         elif key in ['r', 'f']:
-            self.pos[joint_index] += -step if key == 'a' else step
+            self.pos[joint_index] += -step if key == 'r' else step
         elif key == ' ':
             if self.grasp:
                 self.robot.tool.open_gripper()

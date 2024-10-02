@@ -52,6 +52,7 @@ class ArmControllerPositionBased(ArmController):
             # wait for new key
             key = self.std_in_out_controller.get_key()
             if key == 'q':
+                # TODO: Add a message to inform the user that the robot is going to sleep
                 self.end = True
                 raise KeyboardInterrupt  # Exit loop if 'q' is pressed
             
