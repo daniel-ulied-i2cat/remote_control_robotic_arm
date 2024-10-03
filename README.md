@@ -52,9 +52,13 @@ To deploy this code there are three possible ways;
 
 3.3 Install Dependancies
 
-```pip install -r requirements.txt```
+```pip install -r niryo_ned/requirements.txt```
 
-3.4 Launch Python Project
+3.4 Navigate to src folder
+
+```cd niryo_ned/src```
+
+3.5 Launch Python Project
 
 ```python main.py```
 
