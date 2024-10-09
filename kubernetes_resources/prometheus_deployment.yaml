@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: prometheus
-  namespace: my-namespace
+  # namespace: my-namespace
 spec:
   replicas: 1
   selector:
@@ -27,3 +27,5 @@ spec:
         - name: prometheus-config
           hostPath: 
             path: ./prometheus/ # Adjust this path according to your environment
+      imagePullSecrets:
+      - name: docker-pull-secret   

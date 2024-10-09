@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: niryo-ned-2
-  namespace: my-namespace
+  # namespace: my-namespace
 spec:
   replicas: 1
   selector:
@@ -20,3 +20,6 @@ spec:
             - containerPort: 8000
           stdin: true
           tty: true
+      imagePullSecrets:
+      - name: docker-pull-secret   
+
