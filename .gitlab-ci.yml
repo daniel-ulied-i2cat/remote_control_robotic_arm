@@ -24,7 +24,7 @@ build_docker:
       --destination "${CI_REGISTRY_IMAGE}:${CODE_VERSION}"
       --destination "${CI_REGISTRY_IMAGE}:latest"
   rules:
-    - if: $CI_COMMIT_BRANCH == "master"
+    - if: $CI_COMMIT_BRANCH == "main"
 
 docker_vulnerability_scan:
   stage: publish
