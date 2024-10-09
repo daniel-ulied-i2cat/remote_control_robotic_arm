@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: niryo-ned-2
-          image: remote-control-niryo-ned-2-niryo-ned-2
+          image: gitlab.i2cat.net:5050/areas/software-networks/zero-swarm/remote-control-niryo-ned-2:latest
           ports:
             - containerPort: 8000
           stdin: true
