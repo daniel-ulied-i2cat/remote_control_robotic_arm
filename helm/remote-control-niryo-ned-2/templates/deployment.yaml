@@ -24,6 +24,6 @@ spec:
       imagePullSecrets:
       - name: {{.Values.imagePullSecret}}
       volumes:
-        - name: {.Values.niryo_ned_2_deployment.prometheus_volume.name}
-          hostPath: 
-            path: {.Values.niryo_ned_2_deployment.prometheus_volume.hostPath}
+      - name: {.Values.niryo_ned_2_deployment.prometheus_volume.name}
+        hostPath: 
+          path: {.Values.niryo_ned_2_deployment.prometheus_volume.hostPath.path}
