@@ -14,16 +14,17 @@ spec:
         app: prometheus
     spec:
       containers:
-        - name: prometheus
-          image: prom/prometheus:latest
-          args:
-            - --config.file=/etc/prometheus/prometheus.yaml
-          ports:
-            - containerPort: 9090
-          volumeMounts:
-            - name: prometheus-config
-              mountPath: /etc/prometheus/
+      - name: prometheus
+        image: {.Values.prometheus-deployment.image.repository}{.Values.prometheus-deployment.image.tag}
+        pullPolicy: {.Values.prometheus-deployment.image.pullPolicy}
+        args:
+          - --config.file=/etc/prometheus/prometheus.yaml
+        ports:
+          - containerPort: 9090
+        volumeMounts:
+          - name: prometheus-config
+            mountPath: /etc/prometheus/
       volumes:
-        - name: prometheus-config
+        - name: {.Values.prometheus-deployment.volumes.name}
           hostPath: 
-            path: ./prometheus/ # Adjust this path according to your environment
+            path: {.Values.prometheus-deployment.volumes.hostPath}

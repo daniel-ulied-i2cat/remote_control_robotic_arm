@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  .dockerconfigjson: ewoJImF1dGhzIjogewoJCSJnaXRsYWIuaTJjYXQubmV0OjUwNTAiOiB7CgkJCSJhdXRoIjogIlpHRnVhV1ZzTG5Wc2FXVmtPbkp2ZEd0dmJpMHpVQT09IgoJCX0sCgkJImh0dHBzOi8vaW5kZXguZG9ja2VyLmlvL3YxLyI6IHsKCQkJImF1dGgiOiAiWkdGdWFXVnNMblZzYVdWa1FHa3lZMkYwTG01bGREcHliM1JyYjI0dE0xQT0iCgkJfQoJfQp9
+kind: Secret
+metadata:
+  name: docker-pull-secret
+  # namespace: my-namespace
+type: kubernetes.io/dockerconfigjson

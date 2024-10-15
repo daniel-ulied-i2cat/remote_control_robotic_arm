@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: niryo-ned-2
+  # namespace: my-namespace
+spec:
+  type: {{.Values.niryo_ned_2_deployment.service.type}}
+  ports:
+  - port: {{.Values.niryo_ned_2_deployment.service.port}}
+    nodePort: {{.Values.niryo_ned_2_deployment.service.nodePort}}
+  selector:
+    app: niryo-ned-2
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus-svc
+  # namespace: my-namespace
+spec:
+  type: {{.Values.niryo_ned_2_deployment.prometheus_service.type}}
+  ports:
+  - port: {{.Values.niryo_ned_2_deployment.prometheus_service.port}}
+    nodePort: {{.Values.niryo_ned_2_deployment.prometheus_service.nodePort}}
+  selector:
+    app: prometheus
+
