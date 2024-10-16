@@ -20,8 +20,6 @@ spec:
         env:
           - name: {{ (index .Values.niryo_ned_2_deployment.prometheus_service.env 0).name }}
             value: {{ (index .Values.niryo_ned_2_deployment.prometheus_service.env 0).value }}
-          - name: {{ (index .Values.niryo_ned_2_deployment.prometheus_service.env 1).name }}
-            value: {{ (index .Values.niryo_ned_2_deployment.prometheus_service.env 1).value }}
         ports:
         - containerPort: 8000
         stdin: true
