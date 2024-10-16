@@ -20,3 +20,13 @@ niryo_ned_2_deployment:
       value: 8000
 
 imagePullSecret: docker-pull-secret
+
+
+kube-prometheus-stack:
+  prometheus:
+    prometheusSpec:
+      additionalScrapeConfigs:
+        - job_name: niryo_ned_2
+          static_configs:
+            - targets: ["niryo-ned-2:8000"]
+          metrics_path: /metrics
