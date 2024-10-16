@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: prometheus
-          image: prom/prometheus
+          image: prom/prometheus:latest
           args:
             - --config.file=/etc/prometheus/prometheus.yaml
           ports:
@@ -27,5 +27,3 @@ spec:
         - name: prometheus-config
           hostPath: 
             path: ./prometheus/ # Adjust this path according to your environment
-      imagePullSecrets:
-      - name: docker-pull-secret   

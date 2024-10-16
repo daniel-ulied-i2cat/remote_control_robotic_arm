@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: niryo-ned-2
+  # namespace: my-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: niryo-ned-2
+  template:
+    metadata:
+      labels:
+        app: niryo-ned-2
+    spec:
+      containers:
+      - name: niryo-ned-2
+        image: {{ .Values.niryo_ned_2_deployment.repository }}{{ .Values.niryo_ned_2_deployment.tag }}
+        pullPolicy: {{.Values.niryo_ned_2_deployment.pullPolicy}}
+        ports:
+        - containerPort: 8000
+        stdin: true
+        tty: true
+      imagePullSecrets:
+      - name: {{.Values.imagePullSecret}}
+      volumes:
+      - name: {.Values.niryo_ned_2_deployment.prometheus_volume.name}
+        hostPath: 
+          path: {.Values.niryo_ned_2_deployment.prometheus_volume.hostPath.path}

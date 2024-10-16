@@ -1,0 +1,21 @@
+# Default values for remote-contro-niryo-ned-2.
+
+
+niryo_ned_2_deployment:
+  repository: "gitlab.i2cat.net:5050/areas/software-networks/zero-swarm/remote-control-niryo-ned-2"
+  tag: ":latest"
+  pullPolicy: Always
+  service:
+    type: NodePort
+    port: 8000
+    nodePort: 30000
+  prometheus_service:
+    type: NodePort
+    port: 9090
+    nodePort: 30001
+  prometheus_volume:
+    name: prometheus-volume
+    hostPath: 
+      path: /etc/prometheus
+
+imagePullSecret: docker-pull-secret
