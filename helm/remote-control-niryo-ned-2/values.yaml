@@ -13,9 +13,10 @@ niryo_ned_2_deployment:
     type: NodePort
     port: 9090
     nodePort: 30001
-  prometheus_volume:
-    name: prometheus-volume
-    hostPath: 
-      path: /etc/prometheus
+    env:
+    - name: PROMETHEUS_IP
+      value: "http://localhost"
+    - name: PROMETHEUS_CLIENT_PORT
+      value: 8000
 
 imagePullSecret: docker-pull-secret
