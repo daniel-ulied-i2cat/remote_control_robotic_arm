@@ -2,7 +2,7 @@ import os
 
 from prometheus_client import start_http_server, Gauge, CollectorRegistry, push_to_gateway
 
-PROMETHEUS_IP = os.getenv('PROMETHEUS_IP', 'http://localhost') + ":" + os.getenv('PROMETHEUS_PORT', '8000')
+PROMETHEUS_IP = os.getenv('PROMETHEUS_IP', 'http://localhost') + ":" + os.getenv('PROMETHEUS_PORT', 8000)
 PROMETHEUS_CLIENT_PORT = int(os.getenv('PROMETHEUS_CLIENT_PORT', 8000))
 
 
