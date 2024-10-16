@@ -7,8 +7,8 @@ import pyniryo2 as pyniryo
 
 from arm.arm_controller import ArmController
 from stdinout.stdin_out_controller import StdInOutController
-#from prometheus_exporter.prometheus_server import PrometheusServer as Prometheus
-from prometheus_exporter.prometheus_client import PrometheusClient as Prometheus
+from prometheus_exporter.prometheus_server import PrometheusServer as Prometheus
+#from prometheus_exporter.prometheus_client import PrometheusClient as Prometheus
 
 
 class ArmControllerPositionBased(ArmController):
