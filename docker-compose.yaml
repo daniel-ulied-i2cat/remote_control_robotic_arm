@@ -15,6 +15,9 @@ services:
     ports:
       - "9000:9090"
     image: prom/prometheus
+    environment:
+      - PROMETHEUS_IP=http://localhost
+      - PROMETHEUS_CLIENT_PORT=8000
     command: --config.file=/etc/prometheus/prometheus.yaml
     volumes:
       - ./prometheus/:/etc/prometheus/

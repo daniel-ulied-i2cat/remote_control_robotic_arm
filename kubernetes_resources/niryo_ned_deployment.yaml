@@ -11,7 +11,11 @@ spec:
   template:
     metadata:
       labels:
-        app: niryo-ned-2
+        env:
+          - name: PROMETHEUS_IP
+            value: "http://localhost"
+          - name: PROMETHEUS_CLIENT_PORT
+            value: "8000"
     spec:
       containers:
         - name: niryo-ned-2

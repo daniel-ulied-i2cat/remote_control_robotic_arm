@@ -7,6 +7,9 @@ ADD requirements.txt /
 RUN pip install --upgrade pip
 RUN pip install --upgrade setuptools
 RUN pip install -r /requirements.txt
+
+ENV PROMETHEUS_IP=http://localhost
+ENV PROMETHEUS_CLIENT_PORT=8000
 # RUN pip install pyniryo2
 
 ENTRYPOINT [ "python", "main.py", "--docker"]

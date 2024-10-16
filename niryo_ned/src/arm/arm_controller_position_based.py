@@ -7,7 +7,8 @@ import pyniryo2 as pyniryo
 
 from arm.arm_controller import ArmController
 from stdinout.stdin_out_controller import StdInOutController
-from prometheus_exporter.prometheus_client import PrometheusClient
+#from niryo_ned.src.prometheus_exporter.prometheus_server import PrometheusServer as Prometheus
+from niryo_ned.src.prometheus_exporter.prometheus_client import PrometheusClient as Prometheus
 
 
 class ArmControllerPositionBased(ArmController):
@@ -17,7 +18,7 @@ class ArmControllerPositionBased(ArmController):
         self.action_pending = False
         self._print_joint_information()
         self.std_in_out_controller = StdInOutController()
-        self.prometheus_client = PrometheusClient()
+        self.prometheus_client = Prometheus()
         self.end = False
 
     def __action_finished(self, message: str) -> None:
