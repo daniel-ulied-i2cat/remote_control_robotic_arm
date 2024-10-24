@@ -15,9 +15,9 @@ niryo_ned_2_deployment:
     nodePort: 30001
     env:
     - name: PROMETHEUS_IP
-      value: "http://localhost"
+      value: "http://192.168.40.87"
     - name: PROMETHEUS_CLIENT_PORT
-      value: 8000
+      value: 30735
 
 imagePullSecret: docker-pull-secret
 

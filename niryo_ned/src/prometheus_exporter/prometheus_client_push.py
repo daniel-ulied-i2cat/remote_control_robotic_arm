@@ -3,13 +3,11 @@ import os
 from prometheus_client import start_http_server, Gauge, CollectorRegistry, push_to_gateway
 
 PROMETHEUS_IP = os.getenv('PROMETHEUS_IP', 'http://localhost') + ":" + os.getenv('PROMETHEUS_PORT', "8000")
-PROMETHEUS_CLIENT_PORT = int(os.getenv('PROMETHEUS_CLIENT_PORT', 8000))
 
 
-class PrometheusClient:
+class PrometheusClientPush:
 
     def __init__(self) -> None:
-        self.prometheus_client_port = PROMETHEUS_CLIENT_PORT
         self.registry = CollectorRegistry()
 
         self.latency_gauge = Gauge('latency', 'Network Latency Round Trip Time', registry=self.registry)
@@ -17,6 +15,9 @@ class PrometheusClient:
         self.throughput = Gauge('throughput', 'Mbps used to send Niryo-related data', registry=self.registry)
 
     def push_to_gateway(self) -> None:
+        """
+        FUNCTION NOT BEING USED
+        """
         push_to_gateway(PROMETHEUS_IP, job="Niyro Remote Control", registry=self.registry)
 
     def send_latency(self, value: str) -> None:

@@ -3,7 +3,8 @@ import time
 import pyniryo2 as pyniryo
 import numpy as np
 
-IP = "172.27.13.150"
+#IP = "172.27.13.150"
+IP = "192.168.4.73"
 
 def generate_random_positions():
     # Define the range and step
@@ -98,6 +99,7 @@ if __name__ == '__main__':
     try:
         main(robot)
     except KeyboardInterrupt:
+        print("Going to sleep, please wait...")
         robot.arm.go_to_sleep()            
         # robot.pick_place.pick_from_pose(pos)
         print("The robot got stopped.")
